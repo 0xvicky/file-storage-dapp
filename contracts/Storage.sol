@@ -14,10 +14,12 @@ contract Storage{
     }
     struct File{
         string fileType;
+        string fileName;
         bytes32 fileId;
         uint256 fileSize;
         string fileURI;
         uint256 fileNumber;
+        uint256 uploadDate;
     }
     address public immutable OWNER;
     uint256 public immutable UPLOAD_AMT;
@@ -56,7 +58,7 @@ contract Storage{
        return fileId;
    }
 
-   function upload(string memory _fileType, uint256 _fileSize, string memory _fileURI) external returns(bool){
+   function upload(string memory _fileType, uint256 _fileSize, string memory _fileURI, string memory _fileName, uint256 _uploadDate) external returns(bool){
       if(!userInfo[msg.sender].isReg){
          revert AlreadyRegistered(msg.sender);
         }
@@ -67,7 +69,9 @@ contract Storage{
        fileId: genFileId(_fileNum),
        fileSize:_fileSize,
        fileURI:_fileURI,
-       fileNumber:_fileNum
+       fileNumber:_fileNum,
+       fileName:_fileName,
+       uploadDate:_uploadDate
    });
  userToFile[msg.sender].push(newFile);
  adminToDashboard[OWNER].totalFiles++;

@@ -13,7 +13,7 @@ const Navbar = () => {
       <Toaster />
       <div className="bg-black p-12 flex justify-between">
         <div className="header text-white font-semibold text-2xl">
-          Simple Storage
+          IPFS Storage
         </div>
         {user.isClicked ? (
           user.isMetamask ? (
@@ -38,8 +38,7 @@ const Navbar = () => {
           <>
             <button
               className="connBtn text-black bg-white rounded-md p-3 font-semibold "
-              onClick={handleAddress}
-            >
+              onClick={handleAddress}>
               Connect
             </button>
           </>
