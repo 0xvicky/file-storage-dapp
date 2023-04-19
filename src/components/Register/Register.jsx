@@ -11,7 +11,7 @@ const Register = () => {
   //functions
   const handleRegister = async () => {
     const contract = new ethers.Contract(contractAddress, abi, user.signer)
-    const amt = ethers.utils.parseUnits("100", "wei")
+    const amt = ethers.utils.parseUnits("1000", "wei")
     try {
       const reg = await contract.register({ value: amt })
       await reg.wait()

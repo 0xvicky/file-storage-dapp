@@ -33,12 +33,12 @@ contract Storage{
     mapping(address=>AdminDashboard) public adminToDashboard;
     mapping(address=>File[]) public userToFile;
     
-    error AlreadyRegistered(address);
+    error InvalidSender(address);
     error InvalidAmt(uint256);
 
     function register() external payable returns(bool){
         if(userInfo[msg.sender].isReg){
-         revert AlreadyRegistered(msg.sender);
+         revert InvalidSender(msg.sender);
         }
         if(msg.value!= UPLOAD_AMT){
             revert InvalidAmt(msg.value);
@@ -52,15 +52,20 @@ contract Storage{
     adminToDashboard[OWNER].totalUsers++;
     return true;
     }
-
+   function getFileLen() public view returns(uint256){
+       if(!userInfo[msg.sender].isReg){
+           revert InvalidSender(msg.sender);
+       }
+       return userToFile[msg.sender].length;
+   }
    function genFileId(uint256 _fileNum) internal view returns(bytes32){
-       bytes32 fileId = keccak256(abi.encodePacked(msg.sender,_fileNum));
+       bytes32 fileId = keccak256(abi.encodePacked(msg.sender,_fileNum,block.timestamp));
        return fileId;
    }
 
    function upload(string memory _fileType, uint256 _fileSize, string memory _fileURI, string memory _fileName, uint256 _uploadDate) external returns(bool){
       if(!userInfo[msg.sender].isReg){
-         revert AlreadyRegistered(msg.sender);
+         revert InvalidSender(msg.sender);
         }
    userInfo[msg.sender].fileCount++;
    uint256 _fileNum = userInfo[msg.sender].fileCount;
