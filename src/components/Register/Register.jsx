@@ -30,11 +30,13 @@ const Register = () => {
   return (
     <>
       <Toaster />
-      <button
-        className="connBtn text-white bg-black rounded-md p-3 font-semibold "
-        onClick={handleRegister}>
-        Register
-      </button>
+      <div className="flex justify-center w-full">
+        <button
+          className="connBtn  text-white bg-gradient-to-br from-[#c04848] to-[#480048] rounded-md p-10 text-4xl font-semibold "
+          onClick={handleRegister}>
+          Register
+        </button>
+      </div>
     </>
   )
 }

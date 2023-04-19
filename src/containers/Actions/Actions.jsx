@@ -27,7 +27,7 @@ const Actions = () => {
 
   return (
     <>
-      <div className=" flex  py-6 items-center h-[80vh] bg-gray-200">
+      <div className=" flex  py-6 items-center h-[84.5vh] bg-gray-200">
         {user.isRegistered ? (
           <>
             <Routes>

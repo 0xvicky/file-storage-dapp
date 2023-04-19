@@ -15,22 +15,26 @@ const Navbar = () => {
   return (
     <>
       <Toaster />
-      <div className="bg-black p-12 flex justify-between">
+      <div className="bg-gradient-to-l from-[#c04848] to-[#480048] p-12 flex justify-between">
         <div className="header text-white font-semibold text-2xl">IPFS Storage</div>
         {user.isMetamask ? (
           user.userAddr !== undefined ? (
-            <button className="connBtn text-black bg-white rounded-md p-3 font-semibold ">
-              {`${user.userAddr.slice(0, 8)}....${user.userAddr.slice(-7, -1)}`}
-            </button>
+            <div className="bg-white rounded-md ">
+              <button className="bg-gradient-to-r from-[#c04848] to-[#480048] font-bold p-2 text-2xl text-transparent bg-clip-text">
+                {`${user.userAddr.slice(0, 8)}....${user.userAddr.slice(-7, -1)}`}
+              </button>
+            </div>
           ) : (
-            <button
-              className="connBtn text-black bg-white rounded-md p-3 font-semibold "
-              onClick={handleAddress}>
-              Connect
-            </button>
+            <div className="bg-white rounded-md ">
+              <button
+                className="bg-gradient-to-r from-[#c04848] to-[#480048] font-bold p-2 text-2xl text-transparent bg-clip-text"
+                onClick={handleAddress}>
+                Connect
+              </button>
+            </div>
           )
         ) : (
-          <button className="connBtn text-black bg-white rounded-md p-3 font-semibold ">
+          <button className="connBtn text-black bg-white rounded-md p-3 font-semibold">
             Install Metamask
           </button>
         )}
