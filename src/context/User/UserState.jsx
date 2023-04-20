@@ -16,6 +16,33 @@ const UserState = (props) => {
     const getConnect = async () => {
       const { ethereum } = window
       setIsMetamask(true)
+      try {
+        await ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0x13881", // Matic Mumbai Testnet chain ID
+              chainName: "Matic Mumbai Testnet",
+              rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+              nativeCurrency: {
+                name: "Matic",
+                symbol: "MATIC",
+                decimals: 18,
+              },
+            },
+          ],
+        })
+      } catch (error) {
+        console.error("Error adding Matic Mumbai Testnet to wallet:", error)
+      }
+      try {
+        await ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0x13881" }],
+        })
+      } catch (error) {
+        console.error("Error switching to Matic Mumbai Testnet:", error)
+      }
       if (userAddr === undefined) {
         ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
           setUserAddr(res[0])
