@@ -1,4 +1,4 @@
-export const contractAddress = "0x02eCBE87e7AC58Eb260eBFacFDaEbAbf84E5A09c"
+export const contractAddress = "0xe327a170a52588fF0103a94D377d3407d0c54e33"
 export const abi = [
   {
     inputs: [
@@ -35,59 +35,29 @@ export const abi = [
   },
   {
     inputs: [],
-    name: "register",
+    name: "OWNER",
     outputs: [
       {
-        internalType: "bool",
+        internalType: "address",
         name: "",
-        type: "bool",
+        type: "address",
       },
     ],
-    stateMutability: "payable",
+    stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_fileType",
-        type: "string",
-      },
-      {
-        internalType: "uint256",
-        name: "_fileSize",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "_fileURI",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_fileName",
-        type: "string",
-      },
-      {
-        internalType: "uint256",
-        name: "_uploadDate",
-        type: "uint256",
-      },
-    ],
-    name: "upload",
+    inputs: [],
+    name: "UPLOAD_AMT",
     outputs: [
       {
-        internalType: "bool",
+        internalType: "uint256",
         name: "",
-        type: "bool",
+        type: "uint256",
       },
     ],
-    stateMutability: "nonpayable",
+    stateMutability: "view",
     type: "function",
-  },
-  {
-    stateMutability: "payable",
-    type: "receive",
   },
   {
     inputs: [
@@ -152,28 +122,54 @@ export const abi = [
   },
   {
     inputs: [],
-    name: "OWNER",
+    name: "register",
     outputs: [
       {
-        internalType: "address",
+        internalType: "bool",
         name: "",
-        type: "address",
+        type: "bool",
       },
     ],
-    stateMutability: "view",
+    stateMutability: "payable",
     type: "function",
   },
   {
-    inputs: [],
-    name: "UPLOAD_AMT",
-    outputs: [
+    inputs: [
+      {
+        internalType: "string",
+        name: "_fileType",
+        type: "string",
+      },
       {
         internalType: "uint256",
-        name: "",
+        name: "_fileSize",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "_fileURI",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "_fileName",
+        type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "_uploadDate",
         type: "uint256",
       },
     ],
-    stateMutability: "view",
+    name: "upload",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -258,5 +254,9 @@ export const abi = [
     ],
     stateMutability: "view",
     type: "function",
+  },
+  {
+    stateMutability: "payable",
+    type: "receive",
   },
 ]

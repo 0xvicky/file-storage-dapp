@@ -24,6 +24,7 @@ const Register = () => {
       })
     } catch (error) {
       toast.error("Try Again")
+      toast.dismiss()
       console.log(`Error occured:${error}`)
     }
   }

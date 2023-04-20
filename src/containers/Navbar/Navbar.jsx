@@ -5,12 +5,6 @@ import "./Navbar.css"
 
 const Navbar = () => {
   const user = useContext(UserContext)
-  const handleAddress = () => {
-    user.setIsClicked((prev) => {
-      return !prev
-    })
-    console.log(user.isClicked)
-  }
 
   return (
     <>
@@ -28,15 +22,21 @@ const Navbar = () => {
             <div className="bg-white rounded-md ">
               <button
                 className="bg-gradient-to-r from-[#c04848] to-[#480048] font-bold p-2 text-2xl text-transparent bg-clip-text"
-                onClick={handleAddress}>
+                onClick={() => {
+                  user.setIsClicked((prev) => {
+                    return !prev
+                  })
+                }}>
                 Connect
               </button>
             </div>
           )
         ) : (
-          <button className="connBtn text-black bg-white rounded-md p-3 font-semibold">
-            Install Metamask
-          </button>
+          <div className="bg-white rounded-md ">
+            <button className="bg-gradient-to-r from-[#c04848] to-[#480048] font-bold p-2 text-2xl text-transparent bg-clip-text">
+              Install Metamask
+            </button>
+          </div>
         )}
       </div>
     </>
