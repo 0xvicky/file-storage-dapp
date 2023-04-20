@@ -10,12 +10,13 @@ const Register = () => {
 
   //functions
   const handleRegister = async () => {
+    toast.loading("Registering...")
     const contract = new ethers.Contract(contractAddress, abi, user.signer)
     const amt = ethers.utils.parseUnits("1000", "wei")
     try {
       const reg = await contract.register({ value: amt })
       await reg.wait()
-      console.log(`Tx hash:${reg.hash}`)
+      toast.dismiss()
       toast.success("Registeration Success")
       toast.success(`${reg.hash.slice(0, 6)}....${reg.hash.slice(-4)}`)
       user.setIsRegChange((prev) => {

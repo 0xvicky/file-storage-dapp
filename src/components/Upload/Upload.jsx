@@ -66,7 +66,7 @@ const Upload = () => {
 
   return (
     <div className="flex flex-col items-center justify-between h-full w-full p-24">
-      <button className=" text-white w-fit mx-5 bg-gradient-to-r from-[#c04848] to-[#480048] shadow-2xl shadow-[#480048]  rounded-md p-5 text-2xl self-end font-semibold">
+      <button className=" text-white w-fit mx-5 bg-gradient-to-r from-[#c04848] to-[#480048] shadow-2xl shadow-[#480048] rounded-md p-5 text-2xl self-end font-semibold">
         <Link to="/dashboard">Dashboard</Link>
       </button>
       <div className="flex">
