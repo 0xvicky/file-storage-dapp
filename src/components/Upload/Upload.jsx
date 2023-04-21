@@ -15,7 +15,7 @@ const Upload = () => {
 
   // const API_TOKEN = "api"
   const API_TOKEN =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDMxMkY0MzE3MDFFNjk1YjQ4YjJmOTg5ZGFFQ0RBNkI5NGM1NjMyMDUiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODAzNDkxODIwMTksIm5hbWUiOiJmaWxlLXN0ci1kYXBwLXRrbiJ9.7wn_WkvHkhmgbFbWsmBhF1--VpsSoSk5R1AC9LoeYHw"
+    "Your WEB3 Storage API TOKEN"
   const client = new Web3Storage({ token: API_TOKEN })
   const user = useContext(UserContext)
   const handleIPFS = async (e) => {
